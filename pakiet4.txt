@@ -1,0 +1,47 @@
+ zadanie 1
+CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'Admin@123';
+GRANT ALL PRIVILEGES ON *.* TO 'administrator'@'localhost' WITH GRANT OPTION;
+
+ zadanie 2
+CREATE USER 'dyrektor'@'localhost' IDENTIFIED BY 'Dyrektor@123';
+GRANT SELECT ON employees.* TO 'dyrektor'@'localhost';
+
+ zadanie 3
+CREATE USER 'manager'@'localhost' IDENTIFIED BY 'Manager@123';
+GRANT SELECT, INSERT, UPDATE ON employees.* TO 'manager'@'localhost';
+
+ zadanie 4
+SELECT user, host FROM mysql.user;
+
+ zadanie 5
+SHOW GRANTS FOR 'administrator'@'localhost';
+SHOW GRANTS FOR 'dyrektor'@'localhost';
+SHOW GRANTS FOR 'manager'@'localhost';
+
+ zadanie 6
+REVOKE UPDATE ON employees.* FROM 'manager'@'localhost';
+
+ zadanie 7
+CREATE USER 'pracownik'@'localhost' IDENTIFIED BY 'Pracownik@123';
+GRANT SELECT ON employees.employees TO 'pracownik'@'localhost';
+GRANT SELECT ON employees.departments TO 'pracownik'@'localhost';
+
+ zadanie 8
+GRANT CREATE VIEW ON employees.* TO 'dyrektor'@'localhost';
+
+ zadanie 9
+ALTER USER 'manager'@'localhost' IDENTIFIED BY 'NoweHaslo@2025';
+
+ zadanie 10
+DROP USER 'pracownik'@'localhost';
+
+ zadanie 11
+mysqldump -u root -p employees > employees_backup1.sql;
+
+ zadanie 12
+mysqldump -u root -p employees > employees_backup2_2025-01-20.sql;
+
+ zadanie 13
+DROP DATABASE employees;
+CREATE DATABASE employees;
+mysql -u root -p employees < employees_backup1.sql;
