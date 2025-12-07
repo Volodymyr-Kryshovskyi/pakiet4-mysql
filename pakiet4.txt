@@ -35,6 +35,9 @@ ALTER USER 'manager'@'localhost' IDENTIFIED BY 'NoweHaslo@2025';
  zadanie 10
 DROP USER 'pracownik'@'localhost';
 
+Odswiezenie uprawien
+FLUSH PRIVILEGES;
+
  zadanie 11
 mysqldump -u root -p employees > employees_backup1.sql;
 
